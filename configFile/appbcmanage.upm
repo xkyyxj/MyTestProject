@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding='gb2312'?>
+<module name="nc.itf.uap.sf.SFBaseEJB">
+    <public>      
+        <component accessProtected="false"  cluster="MASTER" remote="true" singleton="true" tx="NONE">
+            <interface>nc.bcmanage.bs.ISuperAdminService</interface>
+            <implementation>nc.bcmanage.superadm.bs.SuperAdminImpl</implementation>
+        </component>        
+		<component priority="0" remote="true" singleton="true" tx="CMT">
+			<interface>nc.itf.bcmanage.bs.IBCWithAdminManageService</interface>
+			<implementation>nc.bcmanage.bs.BCWithAdminManageImpl</implementation>
+		</component>	
+		<component priority="0" remote="true" singleton="true" tx="NONE" accessProtected="false">
+			<interface>nc.itf.bcmanage.bs.IDataSourceQuery</interface>
+			<implementation>nc.bcmanage.bs.DataSourceQueryImpl</implementation>
+		</component>
+		<component accessProtected="false" cluster="MASTER" remote="true" singleton="true" tx="NONE">
+            <interface>nc.bcmanage.bs.IBusiCenterManageService</interface>
+            <implementation>nc.bcmanage.bs.BusiCenterManageImpl</implementation>
+        </component>
+        <component remote="true" singleton="true" tx="NONE">
+			<interface>nc.bs.sm.accountmanage.IReportDBService</interface>
+			<implementation>nc.bs.sm.accountmanage.ReportDBImpl</implementation>
+		</component>
+    </public>
+</module>
